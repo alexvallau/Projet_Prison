@@ -1,0 +1,36 @@
+<body>
+    {% extends 'layout.html' %}
+
+    {% block content %}
+    <div style="text-align: center; margin: 20px;">
+        <h1 style="color: red;">Ajouter un Prisonnier</h1>
+
+        <form action="/ajoutPrisonnier" method="post" enctype="multipart/form-data" style="max-width: 400px; margin: 0 auto;">
+
+            <label for="prenom" style="display: block; margin-bottom: 5px; color: red;">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
+
+            <label for="nom" style="display: block; margin-bottom: 5px; color: red;">Nom :</label>
+            <input type="text" id="nom" name="nom" required style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
+
+            <label for="birthday" style="display: block; margin-bottom: 5px; color: red;">Date de naissance :</label>
+            <input type="date" id="birthday" name="birthday" required style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
+
+            <label for="image1" style="display: block; margin-bottom: 5px; color: red;">Image :</label>
+            <input type="file" id="file" name="file" required style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
+
+            <label for="type_de_peine" style="display: block; margin-bottom: 5px; color: red;">Type de peine :</label>
+            <input type="text" id="type_de_peine" name="type_de_peine" required style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
+
+            <label for="collaborateur" style="display: block; margin-bottom: 5px; color: red;">Collaborateur :</label>
+            <input type="checkbox" id="collaborateur" name="collaborateur" style="margin-bottom: 10px;">
+
+            <label for="prison_id" style="display: block; margin-bottom: 5px; color: red;">ID de la prison :</label>
+            <input type="number" id="prison_id" name="prison_id" required style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
+
+            <input type="submit" value="Ajouter" style="background-color: red; color: white; padding: 10px 15px; border: none; cursor: pointer; border-radius: 5px;">
+        </form>
+    </div>
+
+    {% endblock %}
+</body>

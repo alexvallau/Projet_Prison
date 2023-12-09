@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des prisonniers</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: red;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        img {
+            border: 2px solid red;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+{% extends 'layout.html' %}
+
+{% block title %}Prisonner information{% endblock %}
+
+{% block content %}
+{% if prisonner %}
+    <h1>Informations sur le prisonnier</h1>
+    <img src="{{ url_for('static', filename='uploads/' + prisonner.image + '.jpg') }}" width="200" height="200" style="vertical-align: bottom;">
+    <p> <strong>Prénom:</strong> {{ prisonner.Prenom }}</p>
+    <p> <strong>Nom:</strong> {{ prisonner.Nom }}</p>
+    <p> <strong>Date de Naissance:</strong> {{ prisonner.birthday }}</p>
+    <p> <strong>Collaborateur:</strong> {{ 'Collabore avec le système' if prisonner.collaborateur else 'Ne collabore pas' }}</p>
+    <p> <strong>Prison:</strong> {{ prisonner.prison_id }}</p>
+    <p> <strong>Type de peine:</strong> {{ peine.type_de_peine }}</p>
+    <p> <strong>Entrée en prison:</strong> {{ peine.entry_date }}</p>
+    <p> <strong>Sortie de prison:</strong> {{ peine.out_door }}</p>
+{% endif %}
+{% endblock %}
+
+</body>
+</html>
